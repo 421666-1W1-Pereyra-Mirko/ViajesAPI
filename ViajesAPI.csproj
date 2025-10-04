@@ -24,4 +24,8 @@
     <Folder Include="DTOs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="dab-options.json.user" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,22 @@
+﻿{
+   "ConnectionStringName": "dab-connection-string",
+   "Dacpac": null,
+   "DatabaseType": 3,
+   "MergeDacpacs": false,
+   "Optional": false,
+   "ProjectPath": "C:\\Users\\macat\\Downloads\\ViajesAPI\\ViajesAPI",
+   "Tables": [
+      {
+         "Name": "[dbo].[Excursiones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ViajeDetalles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Viajes]",
+         "ObjectType": 0
+      }
+   ]
+}
