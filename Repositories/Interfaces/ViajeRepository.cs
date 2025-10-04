@@ -16,7 +16,6 @@ namespace ViajesAPI.Repositories.Interfaces
 
         public List<Viaje> GetAll()
         {
-      
             return _db.Viajes.Where(v => v.PrecioTotal > 100000).ToList();
         }
 
@@ -27,10 +26,10 @@ namespace ViajesAPI.Repositories.Interfaces
 
         public Viaje? GetFirstByEstado(string estado)
         {
-            return _db.Viajes.FirstOrDefault(v => v.Estado == estado);
-            .Where(v => v.)
-
-
+            return _db.Viajes
+                .Include(v => v.ViajeDetalles)
+                .ThenInclude(d => d.Excursion)
+                .FirstOrDefault(v => v.Estado == estado);
         }
 
         public List<Viaje> GetViajesCaros()

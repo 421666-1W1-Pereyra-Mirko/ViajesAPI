@@ -90,15 +90,12 @@ namespace ViajesAPI.Controllers
         [Route("{estado}")]
         public IActionResult GetFirstByEstado(string estado)
         {
-            try
+            var viaje = _service.GetFirstByEstado(estado);
+            if (viaje == null)
             {
-                Viaje viaje = _service.GetFirstByEstado(estado);
-                return Ok(viaje);
+                return NotFound("No se encontró ningún viaje con el estado especificado.");
             }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Ha ocurrido una excepción.");
-            }
+            return Ok(viaje);
         }
 
         [HttpPut]

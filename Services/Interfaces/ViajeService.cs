@@ -24,7 +24,7 @@ namespace ViajesAPI.Services.Interfaces
 
             if (viaje == null)
             {
-                throw new ArgumentException("El viaje no existe.");
+                throw new ArgumentException("el viaje no existe.");
             }
 
             return viaje;
@@ -32,9 +32,10 @@ namespace ViajesAPI.Services.Interfaces
 
         public Viaje GetFirstByEstado(string estado)
         {
+            var viaje = _repository.GetFirstByEstado(estado);
             if (string.IsNullOrEmpty(estado))
             {
-                throw new ArgumentException("El estado no puede ser nulo o vacío.");
+                throw new ArgumentException("el estado no puede ser nulo o vacío.");
             }
 
             return _repository.GetFirstByEstado(estado);
@@ -73,10 +74,14 @@ namespace ViajesAPI.Services.Interfaces
 
             if (nuevaFecha > viaje.FechaFin)
             {
+             
                 throw new InvalidOperationException("La nueva fecha no puede ser posterior a la fecha de fin del viaje.");
+               
             }
 
+
             _repository.UpdateFecha(viaje, nuevaFecha);
+           
         }
     }
 }
